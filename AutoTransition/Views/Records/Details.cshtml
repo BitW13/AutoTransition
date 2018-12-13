@@ -1,0 +1,52 @@
+﻿@model AutoTransition.Context.Models.Record
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container body-content">
+    <h2>Подробное описание</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayName("Автор"):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Дата"):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RecordDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Заголовок"):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <hr />
+
+            <dt>
+                @Html.DisplayName("Описание"):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Назад", "News", "Records")
+    </p>
+</div>

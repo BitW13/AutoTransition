@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Список маршрутов";
+}
+
+<div class="container body-content">
+    <h2>Список заказов</h2>
+
+    @using (Ajax.BeginForm("ListOfRoutes", "Orders", new AjaxOptions { UpdateTargetId = "table", Url = Url.Action("TableDataForRoutes") }, htmlAttributes: new { @id = "myForm" }))
+    {
+        <input type="text" name="StartCity" form="myForm" class="search" placeholder="Введите город загрузки" style="width: 450px" />
+        <hr />
+        <input type="text" name="EndCity" form="myForm" class="search" placeholder="Введите город разгрузки" style="width: 450px" />
+        <input type="submit" value="Поиск" class="btn btn-info" />
+
+        <br />
+
+        <table class="table table-bordered table-hover" style="margin-top: 20px;">
+            <tr>
+                <th>
+                    @Html.DisplayName("Город загрузки")
+                </th>
+                <th>
+                    @Html.DisplayName("Город разгрузки")
+                </th>
+                <th>
+                    @Html.DisplayName("Расстояние, км")
+                </th>
+            </tr>
+
+            <tbody id="table">
+                @Html.Action("TableDataForRoutes", new { StartCity = Model })
+            </tbody>
+
+        </table>
+    }
+
+</div>

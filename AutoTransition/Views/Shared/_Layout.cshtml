@@ -18,12 +18,31 @@
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <div class="navbar-collapse collapse" id="header">
+
+                @*Для зарегистрированных пользователей*@
+                @if (Request.Cookies["Id"] != null)
+                {
+                    if (Request.Cookies["User"] != null)
+                    {
+                        Html.RenderPartial("_User");
+                    }
+
+                    if (Request.Cookies["Admin"] != null)
+                    {
+                        Html.RenderPartial("_Admin");
+                    }
+
+                    if (Request.Cookies["Moder"] != null)
+                    {
+                        Html.RenderPartial("_Moder");
+                    }
+                }
+                else
+                {
+                    @*Для незарегистрированных пользователей*@
+                    Html.RenderPartial("_Guest");
+                }                
             </div>
         </div>
     </div>

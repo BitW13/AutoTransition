@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AutoTransition.Models.Entities.AccountIndexViewModel>
+@{
+    ViewBag.Title = "Список заказов";
+}
+
+<div class="container body-content">
+    <h2>Список заказов</h2>
+
+    @using (Ajax.BeginForm("ListOfOrders", "Orders", new AjaxOptions { UpdateTargetId = "table", Url = Url.Action("TableData") }, htmlAttributes: new { @id = "myForm" }))
+    {
+        <input type="text" name="UserEmail" form="myForm" class="search" placeholder="Введите никнейм пользователя" style="width: 450px" />
+        <input type="submit" value="Поиск" class="btn btn-info" />
+
+        <br />
+
+        <table class="table table-bordered table-hover" style="margin-top: 20px;">
+            <tr>
+                <th>
+                    @Html.DisplayName("Email")
+                </th>
+                <th>
+                    @Html.DisplayName("Дата загрузки")
+                </th>
+                <th>
+                    @Html.DisplayName("Дата разгрузки")
+                </th>
+                <th>
+                    @Html.DisplayName("Цена")
+                </th>
+                <th>
+                    @Html.DisplayName("Статус")
+                </th>
+                <th></th>
+            </tr>
+
+            <tbody id="table">
+                @Html.Action("TableData", new { UserEmail = Model })
+            </tbody>
+
+        </table>
+    }
+
+</div>

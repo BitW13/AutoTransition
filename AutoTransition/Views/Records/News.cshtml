@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AutoTransition.Context.Models.Record>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container body-content font18">
+    <h2>Новости</h2>
+
+    <table class="table table-bordered table-hover" style="margin-top: 20px;">
+        <tr>
+            <th>
+                @Html.DisplayName("Автор")
+            </th>
+            <th>
+                @Html.DisplayName("Заголовок")
+            </th>
+            <th>
+                @Html.DisplayName("Дата")
+            </th>
+            <th></th>
+        </tr>
+
+        <tbody id="table">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => item.RecordDate)
+                    </td>
+
+                    <td class="to-centre">
+                        <a href="~/Records/Details/@item.Id">Подробнее</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

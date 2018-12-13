@@ -1,0 +1,59 @@
+﻿@model AutoTransition.Models.Entities.AddRouteViewModel
+
+@{
+    ViewBag.Title = "Добавить маршрут";
+}
+
+<h2>Добавить маршрут</h2>
+
+<div class="container body-content">
+    @using (Html.BeginForm("AddRoute", "Orders"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <p class="control-label col-md-2">
+                    @Html.DisplayNameFor(model => model.StartCity)
+                </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.StartCity, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.StartCity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <p class="control-label col-md-2">
+                    @Html.DisplayNameFor(model => model.EndCity)
+                </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EndCity, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EndCity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <p class="control-label col-md-2">
+                    @Html.DisplayNameFor(model => model.Distance)
+                </p>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Distance, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Distance, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Добавить" class="btn btn-pro" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("На главную", "Index", "Home")
+    </div>
+</div>

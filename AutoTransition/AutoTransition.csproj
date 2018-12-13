@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -126,10 +132,81 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\AutoTransitionContext.cs" />
+    <Compile Include="Context\Concrete\AddressRepository.cs" />
+    <Compile Include="Context\Concrete\AutoRouteRepository.cs" />
+    <Compile Include="Context\Concrete\CargoDimensionsRepository.cs" />
+    <Compile Include="Context\Concrete\OrderRepository.cs" />
+    <Compile Include="Context\Concrete\RecordRepository.cs" />
+    <Compile Include="Context\Concrete\TransportationTypeRepository.cs" />
+    <Compile Include="Context\Concrete\UserClaimsRepository.cs" />
+    <Compile Include="Context\Concrete\UserRepository.cs" />
+    <Compile Include="Context\Interfaces\IRepository.cs" />
+    <Compile Include="Context\Models\Address.cs" />
+    <Compile Include="Context\Models\AutoRoute.cs" />
+    <Compile Include="Context\Models\CargoDimensions.cs" />
+    <Compile Include="Context\Models\Order.cs" />
+    <Compile Include="Context\Models\Record.cs" />
+    <Compile Include="Context\Models\TransportationTypes.cs" />
+    <Compile Include="Context\Models\User.cs" />
+    <Compile Include="Context\Models\UserClaims.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\RecordsController.cs" />
+    <Compile Include="Filters\AdminAttribute.cs" />
+    <Compile Include="Filters\ModerAttribute.cs" />
+    <Compile Include="Filters\MyAuthAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812092048355_Mig1.cs" />
+    <Compile Include="Migrations\201812092048355_Mig1.Designer.cs">
+      <DependentUpon>201812092048355_Mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812092313429_Mig4.cs" />
+    <Compile Include="Migrations\201812092313429_Mig4.Designer.cs">
+      <DependentUpon>201812092313429_Mig4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812101354448_Mig5.cs" />
+    <Compile Include="Migrations\201812101354448_Mig5.Designer.cs">
+      <DependentUpon>201812101354448_Mig5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812111421360_Mig6.cs" />
+    <Compile Include="Migrations\201812111421360_Mig6.Designer.cs">
+      <DependentUpon>201812111421360_Mig6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812120537568_Mig7.cs" />
+    <Compile Include="Migrations\201812120537568_Mig7.Designer.cs">
+      <DependentUpon>201812120537568_Mig7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812120830456_Mig8.cs" />
+    <Compile Include="Migrations\201812120830456_Mig8.Designer.cs">
+      <DependentUpon>201812120830456_Mig8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812122150042_Mig9.cs" />
+    <Compile Include="Migrations\201812122150042_Mig9.Designer.cs">
+      <DependentUpon>201812122150042_Mig9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Entities\AccountIndexViewModel.cs" />
+    <Compile Include="Models\Entities\AddRecordViewModel.cs" />
+    <Compile Include="Models\Entities\AddRouteViewModel.cs" />
+    <Compile Include="Models\Entities\AdminIndexOrderViewModel.cs" />
+    <Compile Include="Models\Entities\CalcRateViewModel.cs" />
+    <Compile Include="Models\Entities\CreateUserViewModel.cs" />
+    <Compile Include="Models\Entities\DeleteUserViewModel.cs" />
+    <Compile Include="Models\Entities\EditRecordViewModel.cs" />
+    <Compile Include="Models\Entities\EditUserPasswordViewModel.cs" />
+    <Compile Include="Models\Entities\EditUserViewModel.cs" />
+    <Compile Include="Models\Entities\GetRightsUserViewModel.cs" />
+    <Compile Include="Models\Entities\IndexRouteViewModel.cs" />
+    <Compile Include="Models\Entities\LoginUserViewModel.cs" />
+    <Compile Include="Models\Services\ConstractOrder.cs" />
+    <Compile Include="Models\Services\SelectionData.cs" />
+    <Compile Include="Models\Services\SelectionOfOrders.cs" />
+    <Compile Include="Models\Services\SelectionOfRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,7 +231,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -168,10 +247,41 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_Guest.cshtml" />
+    <Content Include="Views\Shared\_User.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Manage\Delete.cshtml" />
+    <Content Include="Views\Manage\Details.cshtml" />
+    <Content Include="Views\Manage\EditUserData.cshtml" />
+    <Content Include="Views\Manage\AccountIndex.cshtml" />
+    <Content Include="Views\Manage\EditUserPassword.cshtml" />
+    <Content Include="Views\Account\GetAdmin.cshtml" />
+    <Content Include="Views\Account\GetModer.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Records\AddRecord.cshtml" />
+    <Content Include="Views\Records\DeleteRecord.cshtml" />
+    <Content Include="Views\Records\Details.cshtml" />
+    <Content Include="Views\Records\Edit.cshtml" />
+    <Content Include="Views\Records\News.cshtml" />
+    <Content Include="Views\Manage\ListOfUsers.cshtml" />
+    <Content Include="Views\Manage\TableData.cshtml" />
+    <Content Include="Views\Manage\UserInfo.cshtml" />
+    <Content Include="Views\Shared\_Moder.cshtml" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\Orders\CalcRate.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\ListOfOrders.cshtml" />
+    <Content Include="Views\Orders\TableData.cshtml" />
+    <Content Include="Views\Orders\AddRoute.cshtml" />
+    <Content Include="Views\Orders\ListOfRoutes.cshtml" />
+    <Content Include="Views\Orders\TableDataForRoutes.cshtml" />
+    <Content Include="Views\Orders\AddTransportationType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -185,6 +295,29 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812092048355_Mig1.resx">
+      <DependentUpon>201812092048355_Mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812092313429_Mig4.resx">
+      <DependentUpon>201812092313429_Mig4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812101354448_Mig5.resx">
+      <DependentUpon>201812101354448_Mig5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111421360_Mig6.resx">
+      <DependentUpon>201812111421360_Mig6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812120537568_Mig7.resx">
+      <DependentUpon>201812120537568_Mig7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812120830456_Mig8.resx">
+      <DependentUpon>201812120830456_Mig8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812122150042_Mig9.resx">
+      <DependentUpon>201812122150042_Mig9.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

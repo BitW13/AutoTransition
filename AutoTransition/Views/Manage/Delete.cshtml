@@ -1,0 +1,44 @@
+﻿@model AutoTransition.Models.Entities.DeleteUserViewModel
+
+@{
+    ViewBag.Title = "Удаление аккаунта";
+}
+
+<h2>Удаление аккаунта</h2>
+
+<h3>Вы действительно хотите удалить аккаунт?</h3>
+<div class="container body-content">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>   
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">            
+            <hr />
+            <div class="form-group">
+                <p>Для подтверждения введите пароль.</p>
+                <p class="control-label col-md-2">
+                    @Html.DisplayNameFor(model => model.Password)
+                </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Назад", "AccountIndex")
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,38 @@
+﻿<ul class="nav navbar-nav">
+    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+    <li>@Html.ActionLink("Информация", "Info", "Home")</li>
+    <li>@Html.ActionLink("Новости", "News", "Records")</li>
+    <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+    <li></li>
+</ul>
+
+@using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+{
+    @Html.AntiForgeryToken()
+
+<ul class="nav navbar-nav navbar-right">
+    <li class="nav-item dropdown">
+        <a class="navbar-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true"
+           aria-expanded="false">
+            Добавить
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>@Html.ActionLink("Вид перевозки", "AddTransportationType", "Orders")</li>
+            <li>@Html.ActionLink("Маршрут", "AddRoute", "Orders")</li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="navbar-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true"
+           aria-expanded="false">
+            Списки
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>@Html.ActionLink("Список пользователей", "ListOfUsers", "Manage")</li>
+            <li>@Html.ActionLink("Список заказов", "ListOfOrders", "Orders")</li>
+            <li>@Html.ActionLink("Список маршрутов", "ListOfRoutes", "Orders")</li>
+        </ul>
+    </li>
+    <li>@Html.ActionLink("Мой аккаунт", "AccountIndex", "Manage")</li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
+</ul>
+}

@@ -1,0 +1,52 @@
+﻿@model AutoTransition.Context.Models.Record
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container body-content font18">
+    <div>
+        <h2>Удаление записи</h2>
+        <h3>Вы действительно хотите удалить эту запись?</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("Автора")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Заголовок")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Описание")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm("DeleteRecord", "Record"))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.UserId)
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Удалить" class="btn btn-primary" /> |
+                @Html.ActionLink("Назад", "News", "Record")
+            </div>
+        }
+    </div>
+</div>

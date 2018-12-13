@@ -26,5 +26,10 @@ namespace AutoTransition.Controllers
 
             return View();
         }
+
+        public ActionResult Services()
+        {
+            return View();
+        }
     }
 }
