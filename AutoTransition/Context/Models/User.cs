@@ -16,5 +16,12 @@ namespace AutoTransition.Context.Models
         public Guid UserClaimsId { get; set; }
 
         public string UserRole { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
+
+        public User()
+        {
+            Orders = new List<Order>();
+        }
     }
 }

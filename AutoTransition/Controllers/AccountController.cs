@@ -113,6 +113,10 @@ namespace AutoTransition.Controllers
                     ModelState.AddModelError("", "Такой логин уже существует");
                 }                
             }
+            else
+            {
+                ModelState.AddModelError("", "Неправильно введённые данные");
+            }
 
             return View(user);
         }
@@ -181,6 +185,10 @@ namespace AutoTransition.Controllers
                 {
                     ModelState.AddModelError("", "Такого пользователя не существует");
                 }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Неправильно введённые данные");
             }
 
             return View(model);

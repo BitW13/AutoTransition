@@ -9,12 +9,6 @@ namespace AutoTransition.Models.Entities
     public class CreateUserViewModel
     {
         [Required(ErrorMessage = "Это поле обязательно для заполнения")]
-        [Display(Name = "Email")]
-        [EmailAddress(ErrorMessage = "Неправильный формат")]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-
-        [Required(ErrorMessage = "Это поле обязательно для заполнения")]
         [Display(Name = "Имя")]
         [DataType(DataType.Text)]
         [StringLength(20, ErrorMessage = "Это поле должно быть от {2} до {1} символов", MinimumLength = 3)]
@@ -25,6 +19,12 @@ namespace AutoTransition.Models.Entities
         [DataType(DataType.Text)]
         [StringLength(20, ErrorMessage = "Это поле должно быть от {2} до {1} символов", MinimumLength = 3)]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Это поле обязательно для заполнения")]
+        [Display(Name = "Email")]
+        [EmailAddress(ErrorMessage = "Неправильный формат")]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "Это поле обязательно для заполнения")]
         [Display(Name = "Телефон")]

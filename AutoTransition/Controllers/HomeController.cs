@@ -31,5 +31,30 @@ namespace AutoTransition.Controllers
         {
             return View();
         }
+
+        public ActionResult Info()
+        {
+            return View();
+        }
+
+        public ActionResult CompleteLoadsInfo()
+        {
+            return View();
+        }
+
+        public ActionResult DangerousLoadsInfo()
+        {
+            return View();
+        }
+
+        public ActionResult RefrigeratedTransportInfo()
+        {
+            return View();
+        }
+
+        public ActionResult GroupageLoadsInfo()
+        {
+            return View();
+        }
     }
 }

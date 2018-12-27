@@ -11,6 +11,8 @@ namespace AutoTransition.Context.Models
 
         public Guid UserId { get; set; }
 
+        public virtual User User { get; set; }
+
         public Guid AutoRouteId { get; set; }
 
         public DateTime LoadDate { get; set; }

@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AutoTransition.Controllers.AccountController">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAgQAABAAAAAAAAAAIAAAABQAAAAAEQAAAAAAg=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Context.Concrete.UserRepository">
+    <Position X="2.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAACAAEAAEAAAgAAAAAIAAA=</HashCode>
+      <FileName>Context\Concrete\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AutoTransition.Context.Concrete.UserClaimsRepository">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAACAAEAAEAAAgAAAAAIAAA=</HashCode>
+      <FileName>Context\Concrete\UserClaimsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AutoTransition.Context.Models.User">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAACAAAAAAAAAAAIAAAAAAAAgCAAAAAAAAAAA=</HashCode>
+      <FileName>Context\Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Context.Models.UserClaims">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAg=</HashCode>
+      <FileName>Context\Models\UserClaims.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Controllers.HomeController">
+    <Position X="1" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Controllers.ManageController">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgQAAAAACAAABAAAAAAAkAQJAAAAAACAAEAAA=</HashCode>
+      <FileName>Controllers\ManageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Controllers.OrdersController">
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAQEAQBAAAkQAAAgAAACAAAAAABAAIAA=</HashCode>
+      <FileName>Controllers\OrdersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Context.Concrete.AddressRepository">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAACAAEAAEAAAgAAAAAIAAA=</HashCode>
+      <FileName>Context\Concrete\AddressRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AutoTransition.Context.Concrete.AutoRouteRepository">
+    <Position X="8" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAACAAEAAEAAAgAAAAAIAAA=</HashCode>
+      <FileName>Context\Concrete\AutoRouteRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AutoTransition.Context.Concrete.CargoDimensionsRepository">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAACAAEAAEAAAgAAAAAIAAA=</HashCode>
+      <FileName>Context\Concrete\CargoDimensionsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AutoTransition.Context.Concrete.OrderRepository">
+    <Position X="6.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAACAAEAAEAAAgAAAAAIAAA=</HashCode>
+      <FileName>Context\Concrete\OrderRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AutoTransition.Context.Concrete.TransportationTypeRepository">
+    <Position X="8" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAACAAEAAEAAAgAAAAAIAAA=</HashCode>
+      <FileName>Context\Concrete\TransportationTypeRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AutoTransition.Context.Models.Address">
+    <Position X="1" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Context\Models\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Context.Models.AutoRoute">
+    <Position X="1" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAQ=</HashCode>
+      <FileName>Context\Models\AutoRoute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Context.Models.CargoDimensions">
+    <Position X="2.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Context\Models\CargoDimensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Context.Models.Order">
+    <Position X="6.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAEAQAAAAEAAAAAAAgAACQAACIAAAAACAAAAAA=</HashCode>
+      <FileName>Context\Models\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Controllers.RecordsController">
+    <Position X="1" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIAgAABBAAAAAAAAAAAAAAgAAAADAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\RecordsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Context.Concrete.RecordRepository">
+    <Position X="2.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAABAAAAAAAAAACAAEAAEAAAgAAAAAIAAA=</HashCode>
+      <FileName>Context\Concrete\RecordRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AutoTransition.Context.Models.Record">
+    <Position X="4.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAACAgAEAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Context\Models\Record.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Services.ConstractOrder">
+    <Position X="1" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAQQIAAAAAgACAABABAAAAAAA=</HashCode>
+      <FileName>Models\Services\ConstractOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Services.SelectionData">
+    <Position X="2.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAJAAABA=</HashCode>
+      <FileName>Models\Services\SelectionData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Services.SelectionOfOrders">
+    <Position X="4.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAABAAAAAAAAAAQAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Models\Services\SelectionOfOrders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Services.SelectionOfRoutes">
+    <Position X="6.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAAAAAAAAAAAAIAEAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\Services\SelectionOfRoutes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.AccountIndexViewModel">
+    <Position X="0.5" Y="18.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQACAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAg=</HashCode>
+      <FileName>Models\Entities\AccountIndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.AddRecordViewModel">
+    <Position X="2.75" Y="18.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAgAEAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\AddRecordViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.AddRouteViewModel">
+    <Position X="4.75" Y="18.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAABAAAAAQAAAAAA=</HashCode>
+      <FileName>Models\Entities\AddRouteViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.AdminIndexOrderViewModel">
+    <Position X="6.75" Y="18.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEASAAAAEAAAAAAAgAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\AdminIndexOrderViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.CalcRateViewModel">
+    <Position X="0.5" Y="21" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAEAAAABEAAABCACAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Models\Entities\CalcRateViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.CreateUserViewModel">
+    <Position X="2.5" Y="21" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAQAAAAAAAACAAAAIAAAIAg=</HashCode>
+      <FileName>Models\Entities\CreateUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.DeleteUserViewModel">
+    <Position X="4.5" Y="21" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\DeleteUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.EditRecordViewModel">
+    <Position X="6.5" Y="21.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAEAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\EditRecordViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.EditUserPasswordViewModel">
+    <Position X="0.5" Y="23.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\Entities\EditUserPasswordViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.EditUserViewModel">
+    <Position X="3" Y="23.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAg=</HashCode>
+      <FileName>Models\Entities\EditUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.GetRightsUserViewModel">
+    <Position X="5" Y="23.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAACCAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\GetRightsUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.IndexRouteViewModel">
+    <Position X="7.25" Y="23.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAABAAAAAQAAAAAA=</HashCode>
+      <FileName>Models\Entities\IndexRouteViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoTransition.Models.Entities.LoginUserViewModel">
+    <Position X="0.5" Y="25.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entities\LoginUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="AutoTransition.Context.Interfaces.IRepository&lt;T&gt;">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAACAAEAAEAAAgAAAAAIAAA=</HashCode>
+      <FileName>Context\Interfaces\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,105 @@
+﻿@model AutoTransition.Models.Entities.OrderIndexViewModel
+
+@{
+    ViewBag.Title = "Информация о заказе";
+}
+
+<h2>Информация о заказе</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StartCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartAddressInCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartAddressInCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndAddressInCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndAddressInCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoadDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnloadDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnloadDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransportationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransportationType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargoDimensions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargoDimensions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("На главную", "Index", "Home") |
+    @Html.ActionLink("Назад", "ListOfOrders")
+</p>

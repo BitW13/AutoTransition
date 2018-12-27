@@ -1,7 +1,19 @@
 ﻿<ul class="nav navbar-nav">
     <li>@Html.ActionLink("Главная", "Index", "Home")</li>
     <li>@Html.ActionLink("О компании", "About", "Home")</li>
-    <li>@Html.ActionLink("Услуги", "Services", "Home")</li>
+    <li class="nav-item dropdown">
+        <a class="navbar-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true"
+           aria-expanded="false">
+            Услуги
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>@Html.ActionLink("Наши услуги", "Services", "Home")</li>
+            <li>@Html.ActionLink("Комплектные грузы", "CompleteLoadsInfo", "Home")</li>
+            <li>@Html.ActionLink("Опасные грузы", "DangerousLoadsInfo", "Home")</li>
+            <li>@Html.ActionLink("Рефрижераторные перевозки", "RefrigeratedTransportInfo", "Home")</li>
+            <li>@Html.ActionLink("Сборные грузы", "GroupageLoadsInfo", "Home")</li>
+        </ul>
+    </li>
     <li>@Html.ActionLink("Информация", "Info", "Home")</li>
     <li>@Html.ActionLink("Новости", "News", "Records")</li>
     <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>

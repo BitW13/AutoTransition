@@ -11,6 +11,13 @@ namespace AutoTransition.Models.Services
 {
     public static class ConstractOrder
     {
+        public static double CoeffDangerousLoads { get; set; }
+        public static double CoeffRefrTransport { get; set; }
+        public static double CoeffGroupLoads { get; set; }
+        public static double CoeffCompleteLoads { get; set; }
+        public static double CoeffDistanceByHundred { get; set; }
+        public static double CoeffProfit { get; set; }
+
         private static IRepository<CargoDimensions> _cargoRepository;
         private static IRepository<TransportationTypes> _transportationTypeRepository;
         
@@ -94,7 +101,16 @@ namespace AutoTransition.Models.Services
 
         private static double CalcPrice(CalcRateViewModel model, AutoRoute route)
         {
-            double price = 1.25 * 1.6 * route.Distance / 100 * SelectCoefficientByTransportationType(model.TransportationType);
+            if(CoeffProfit == 0)
+            {
+                CoeffProfit = 1.25;
+            }
+            if(CoeffDistanceByHundred == 0)
+            {
+                CoeffDistanceByHundred = 1.6;
+            }
+            double price = CoeffProfit * CoeffDistanceByHundred * route.Distance 
+                / 100 * SelectCoefficientByTransportationType(model.TransportationType);
 
             string[] cargoDimensions = (model.CargoDimensions).Split('/');
 
@@ -110,19 +126,35 @@ namespace AutoTransition.Models.Services
 
             if(type == "Опасный груз")
             {
-                coeff = 2.5;
+                coeff = CoeffDangerousLoads;
+                if (CoeffDangerousLoads == 0)
+                {
+                    coeff = 1.29;
+                }                
             }
             else if(type == "С температурным режимом")
             {
-                coeff = 1.8;
+                coeff = CoeffRefrTransport;
+                if(CoeffRefrTransport == 0)
+                {
+                    coeff = 1.45;
+                }
             }
             else if(type == "Сборный груз")
             {
-                coeff = 2.0;
+                coeff = CoeffGroupLoads;
+                if(CoeffGroupLoads == 0)
+                {
+                    coeff = 1.5;
+                }
             }
             else if(type == "Комплектный груз")
             {
-                coeff = 1.9;
+                coeff = CoeffCompleteLoads;
+                if(CoeffCompleteLoads == 0)
+                {
+                    coeff = 1.6;
+                }
             }
 
             return coeff;

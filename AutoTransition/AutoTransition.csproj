@@ -189,12 +189,17 @@
     <Compile Include="Migrations\201812122150042_Mig9.Designer.cs">
       <DependentUpon>201812122150042_Mig9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812131532220_Mig10.cs" />
+    <Compile Include="Migrations\201812131532220_Mig10.Designer.cs">
+      <DependentUpon>201812131532220_Mig10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\AccountIndexViewModel.cs" />
     <Compile Include="Models\Entities\AddRecordViewModel.cs" />
     <Compile Include="Models\Entities\AddRouteViewModel.cs" />
     <Compile Include="Models\Entities\AdminIndexOrderViewModel.cs" />
     <Compile Include="Models\Entities\CalcRateViewModel.cs" />
+    <Compile Include="Models\Entities\ChangeCoefficientsForRateViewModel.cs" />
     <Compile Include="Models\Entities\CreateUserViewModel.cs" />
     <Compile Include="Models\Entities\DeleteUserViewModel.cs" />
     <Compile Include="Models\Entities\EditRecordViewModel.cs" />
@@ -203,6 +208,8 @@
     <Compile Include="Models\Entities\GetRightsUserViewModel.cs" />
     <Compile Include="Models\Entities\IndexRouteViewModel.cs" />
     <Compile Include="Models\Entities\LoginUserViewModel.cs" />
+    <Compile Include="Models\Entities\OrderIndexViewModel.cs" />
+    <Compile Include="Models\Entities\OrderInfoViewModel.cs" />
     <Compile Include="Models\Services\ConstractOrder.cs" />
     <Compile Include="Models\Services\SelectionData.cs" />
     <Compile Include="Models\Services\SelectionOfOrders.cs" />
@@ -214,12 +221,30 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\imgs\11980906_w0_h0_deliveryicon.png" />
+    <Content Include="Content\imgs\154251.jpeg" />
+    <Content Include="Content\imgs\avtopoezd.png" />
+    <Content Include="Content\imgs\iconGroupage.svg" />
+    <Content Include="Content\imgs\izoterm.png" />
+    <Content Include="Content\imgs\jumbo.png" />
+    <Content Include="Content\imgs\komplektnye-gruzy.jpg" />
+    <Content Include="Content\imgs\ops-gruzy.jpg" />
+    <Content Include="Content\imgs\otkritaya-platforma.png" />
+    <Content Include="Content\imgs\platforma-negabarit.png" />
+    <Content Include="Content\imgs\polupricep.png" />
+    <Content Include="Content\imgs\ref5.jpg" />
+    <Content Include="Content\imgs\refrizherator.png" />
+    <Content Include="Content\imgs\sborn2.jpg" />
+    <Content Include="Content\imgs\screenshot2874b02.png" />
+    <Content Include="Content\imgs\Servizi-SpedizioniTerra.png" />
+    <Content Include="Content\imgs\tild3064-3836-4438-b538-663337316133__5744279c80d7f4f1023b.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -279,6 +304,13 @@
     <Content Include="Views\Orders\ListOfRoutes.cshtml" />
     <Content Include="Views\Orders\TableDataForRoutes.cshtml" />
     <Content Include="Views\Orders\AddTransportationType.cshtml" />
+    <Content Include="Views\Home\Info.cshtml" />
+    <Content Include="Views\Home\CompleteLoadsInfo.cshtml" />
+    <Content Include="Views\Home\DangerousLoadsInfo.cshtml" />
+    <Content Include="Views\Home\RefrigeratedTransportInfo.cshtml" />
+    <Content Include="Views\Home\GroupageLoadsInfo.cshtml" />
+    <Content Include="Views\Orders\OrderInfo.cshtml" />
+    <Content Include="Views\Orders\ChangeCoefficientsForRate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -317,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812122150042_Mig9.resx">
       <DependentUpon>201812122150042_Mig9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812131532220_Mig10.resx">
+      <DependentUpon>201812131532220_Mig10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

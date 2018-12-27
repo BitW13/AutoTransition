@@ -23,6 +23,8 @@ namespace AutoTransition.Controllers
         private IRepository<Address> _addressRepository;
         private IRepository<AutoRoute> _autoRouteRepository;
         private IRepository<TransportationTypes> _transportationTypeRepository;
+        private IRepository<UserClaims> _userClaimsRepository;
+        private IRepository<CargoDimensions> _cargoDimensionsRepository;
 
 
         public OrdersController()
@@ -32,6 +34,8 @@ namespace AutoTransition.Controllers
             _addressRepository = new AddressRepository();
             _autoRouteRepository = new AutoRouteRepository();
             _transportationTypeRepository = new TransportationTypeRepository();
+            _userClaimsRepository = new UserClaimsRepository();
+            _cargoDimensionsRepository = new CargoDimensionsRepository();
         }
 
         // GET: Orders
@@ -105,38 +109,72 @@ namespace AutoTransition.Controllers
 
             foreach (var route in list)
             {
-                models.Add(new IndexRouteViewModel()
+                var startAddress = _addressRepository.GetItemById(route.StartAddressId);
+                var endAddress = _addressRepository.GetItemById(route.EndAddressId);
+
+                if(startAddress.AddressInCity == null && endAddress.AddressInCity == null)
                 {
-                    StartCity = (_addressRepository.GetItemById(route.StartAddressId)).City,
-                    EndCity = (_addressRepository.GetItemById(route.EndAddressId)).City,
-                    Distance = route.Distance
-                });
+                    models.Add(new IndexRouteViewModel()
+                    {
+                        StartCity = startAddress.City,
+                        EndCity = endAddress.City,
+                        Distance = route.Distance
+                    });
+                }                
             }
 
             return PartialView(models);
         }
 
-        //[MyAuth]
-        //[Admin]
-        //public ActionResult UserInfo(Guid? id)
-        //{
-        //    var user = _userRepository.GetItemById(id.Value);
-        //    var userClaims = _userClaimsRepository.GetItemById(user.UserClaimsId);
+        //GET: Orders/OrderInfo
+        [MyAuth]
+        public ActionResult OrderInfo(Guid? id)
+        {
+            if(id == null)
+            {
+                return HttpNotFound();
+            }
 
-        //    var model = new AccountIndexViewModel()
-        //    {
-        //        Id = user.Id,
-        //        Email = user.Email,
-        //        Name = userClaims.Name,
-        //        LastName = userClaims.LastName,
-        //        Phone = userClaims.Phone,
-        //        CountOfActiveOrders = SelectionOfOrders.GetCountOfActiveOrdersByUserId(id)
-        //    };
+            var order = _orderRepository.GetItemById(id.Value);
 
-        //    return View(model);
-        //}
+            if(order == null)
+            {
+                return HttpNotFound();
+            }
+
+            var autoRoute = _autoRouteRepository.GetItemById(order.AutoRouteId);
+
+            var startAddress = _addressRepository.GetItemById(autoRoute.StartAddressId);
+
+            var endAddress = _addressRepository.GetItemById(autoRoute.EndAddressId);
+
+            var transportationType = _transportationTypeRepository.GetItemById(order.TransportationTypeId);
+
+            var cargo = _cargoDimensionsRepository.GetItemById(order.CargoDimensionsId);
+
+            var model = new OrderIndexViewModel()
+            {
+                Id = id.Value,
+                CargoDimensions = (cargo.Width.ToString() + "/" + cargo.Length.ToString() + "/" + cargo.Hight.ToString()),
+                StartCity = startAddress.City,
+                StartAddressInCity = startAddress.AddressInCity,
+                EndCity = endAddress.City,
+                EndAddressInCity = endAddress.AddressInCity,
+                LoadDate = order.LoadDate,
+                UnloadDate = order.UnloadDate,
+                TransportationType = transportationType.TransportationType,
+                Weight = order.Weight,
+                Price = order.Price,
+                Status = order.Status
+            };
+
+            return View(model);
+        }
+
+
 
         // GET: Orders/Create
+        [MyAuth]
         public ActionResult CalcRate()
         {           
             ViewBag.TransportationTypeList = new SelectList(SelectionData.SelectTransportationTypes());
@@ -200,6 +238,10 @@ namespace AutoTransition.Controllers
                 _orderRepository.Create(newOrder);
 
                 return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Неверно введённые данные");
             }
 
             return View(order);
@@ -290,6 +332,57 @@ namespace AutoTransition.Controllers
                     _transportationTypeRepository.Create(model);
                 }
                 return RedirectToAction("Index", "Home");
+            }
+            return View(model);
+        }
+
+        [Admin]
+        [MyAuth]
+        [HttpGet]
+        public ActionResult ChangeCoefficientsForRate()
+        {
+            return View(new ChangeCoefficientsForRateViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult ChangeCoefficientsForRate(ChangeCoefficientsForRateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                double coeffCompleteLoads = 0;
+                double coeffDangerousLoads = 0;
+                double coeffDistanceByHundred = 0;
+                double coeffGroupLoads = 0;
+                double coeffProfit = 0;
+                double coeffRefrTransport = 0;
+
+                try
+                {
+                    coeffCompleteLoads = Convert.ToDouble(model.CoeffCompleteLoads);
+                    coeffDangerousLoads = Convert.ToDouble(model.CoeffDangerousLoads);
+                    coeffDistanceByHundred = Convert.ToDouble(model.CoeffDistanceByHundred);
+                    coeffGroupLoads = Convert.ToDouble(model.CoeffGroupLoads);
+                    coeffProfit = Convert.ToDouble(model.CoeffProfit);
+                    coeffRefrTransport = Convert.ToDouble(model.CoeffRefrTransport);
+                }
+                catch(Exception ex)
+                {
+                    ModelState.AddModelError("", "Неверно введённые данные");
+                    return View(model);
+                }
+
+                ConstractOrder.CoeffCompleteLoads = coeffCompleteLoads;
+                ConstractOrder.CoeffDangerousLoads = coeffDangerousLoads;
+                ConstractOrder.CoeffDistanceByHundred = coeffDistanceByHundred;
+                ConstractOrder.CoeffGroupLoads = coeffGroupLoads;
+                ConstractOrder.CoeffProfit = coeffProfit;
+                ConstractOrder.CoeffRefrTransport = coeffRefrTransport;
+
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Неверно введённые данные");
             }
             return View(model);
         }
